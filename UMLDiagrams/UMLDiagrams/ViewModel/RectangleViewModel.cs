@@ -11,10 +11,7 @@ using GalaSoft.MvvmLight.Command;
 namespace UMLDiagrams.ViewModel
 {
     class RectangleViewModel : BaseShapeViewModel
-    {
-        public RectangleViewModel()
-        {
-           
-        }
+    {        
+       
     }
 }

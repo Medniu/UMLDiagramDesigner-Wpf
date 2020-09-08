@@ -12,18 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UMLDiagrams.ViewModel;
 
 namespace UMLDiagrams.View
 {
     /// <summary>
-    /// Логика взаимодействия для UseCaseView.xaml
+    /// Логика взаимодействия для LineComponent.xaml
     /// </summary>
-    public partial class UseCaseView : UserControl
+    public partial class LineComponent : UserControl
     {
-        public UseCaseView()
+        public LineComponent()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
     }
 }

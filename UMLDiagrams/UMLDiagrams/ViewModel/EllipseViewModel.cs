@@ -18,12 +18,6 @@ namespace UMLDiagrams.ViewModel
         public EllipseViewModel()
         {            
 
-        }
-        private void Thumb_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
-        {
-            EllipseViewModel n = (EllipseViewModel)((FrameworkElement)sender).DataContext;
-            n.Left += e.HorizontalChange;
-            n.Top += e.VerticalChange;
-        }
+        }       
     }
 }

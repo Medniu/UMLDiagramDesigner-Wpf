@@ -47,6 +47,9 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,19 +73,58 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connector.cs" />
     <Compile Include="MoveThumb.cs" />
     <Compile Include="ResizeThumb.cs" />
+    <Compile Include="Resources\TextSetting.xaml.cs">
+      <DependentUpon>TextSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RotateThumb.cs" />
-    <Compile Include="Timeline.cs" />
+    <Compile Include="ViewModel\ActionViewModel.cs" />
+    <Compile Include="ViewModel\ActorViewModel.cs" />
     <Compile Include="ViewModel\BaseShapeViewModel.cs" />
+    <Compile Include="ViewModel\ClassViewModel.cs" />
+    <Compile Include="ViewModel\DecisionNodeViewModel.cs" />
+    <Compile Include="ViewModel\EndNodeViewModel.cs" />
+    <Compile Include="ViewModel\LineViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RectangleViewModel.cs" />
     <Compile Include="ViewModel\EllipseViewModel.cs" />
-    <Compile Include="View\RectangleView.xaml.cs">
-      <DependentUpon>RectangleView.xaml</DependentUpon>
+    <Compile Include="ViewModel\InitialNodeViewModel.cs" />
+    <Compile Include="ViewModel\SystemViewModel.cs" />
+    <Compile Include="ViewModel\TextViewModel.cs" />
+    <Compile Include="View\ActionComponent.xaml.cs">
+      <DependentUpon>ActionComponent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UseCaseView.xaml.cs">
-      <DependentUpon>UseCaseView.xaml</DependentUpon>
+    <Compile Include="View\ActorComponent.xaml.cs">
+      <DependentUpon>ActorComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DecisionNodeViewModel.xaml.cs">
+      <DependentUpon>DecisionNodeViewModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DiagramClassComponent.xaml.cs">
+      <DependentUpon>DiagramClassComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EndNodeComponent.xaml.cs">
+      <DependentUpon>EndNodeComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InitialNodeComponent.xaml.cs">
+      <DependentUpon>InitialNodeComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LineComponent.xaml.cs">
+      <DependentUpon>LineComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RectangleComponent.xaml.cs">
+      <DependentUpon>RectangleComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SystemComponent.xaml.cs">
+      <DependentUpon>SystemComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TextComponent.xaml.cs">
+      <DependentUpon>TextComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UseCaseComponent.xaml.cs">
+      <DependentUpon>UseCaseComponent.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\ConnectorDecorator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\DesignerItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,11 +158,51 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RectangleView.xaml">
+    <Page Include="Resources\TextSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UseCaseView.xaml">
+    <Page Include="View\ActionComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ActorComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DecisionNodeViewModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DiagramClassComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EndNodeComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InitialNodeComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LineComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RectangleComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SystemComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TextComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UseCaseComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

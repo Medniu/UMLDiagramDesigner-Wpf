@@ -3,21 +3,21 @@
                     xmlns:s="clr-namespace:UMLDiagrams">
     <ControlTemplate x:Key="ResizeDecoratorTemplate" TargetType="{x:Type Control}">
         <Grid SnapsToDevicePixels="True" Opacity="1">
-            <s:ResizeThumb Height="3" Cursor="SizeNS" Margin="0 -4 0 0"
+            <s:ResizeThumb Height="4" Cursor="SizeNS" Margin="0 -4 0 0"
                      VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
-            <s:ResizeThumb Width="3" Cursor="SizeWE" Margin="-4 0 0 0"
+            <s:ResizeThumb Width="4" Cursor="SizeWE" Margin="-4 0 0 0"
                      VerticalAlignment="Stretch" HorizontalAlignment="Left"/>
-            <s:ResizeThumb Width="3" Cursor="SizeWE" Margin="0 0 -4 0"
+            <s:ResizeThumb Width="4" Cursor="SizeWE" Margin="0 0 -4 0"
                      VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
-            <s:ResizeThumb Height="3" Cursor="SizeNS" Margin="0 0 0 -4"
+            <s:ResizeThumb Height="4" Cursor="SizeNS" Margin="0 0 0 -4"
                      VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
-            <s:ResizeThumb Width="7" Height="7" Cursor="SizeNWSE" Margin="-6 -6 0 0"
+            <s:ResizeThumb Width="6" Height="6" Cursor="SizeNWSE" Margin="-6 -6 0 0"
                      VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <s:ResizeThumb Width="7" Height="7" Cursor="SizeNESW" Margin="0 -6 -6 0"
+            <s:ResizeThumb Width="6" Height="6" Cursor="SizeNESW" Margin="0 -6 -6 0"
                      VerticalAlignment="Top" HorizontalAlignment="Right"/>
-            <s:ResizeThumb Width="7" Height="7" Cursor="SizeNESW" Margin="-6 0 0 -6"
+            <s:ResizeThumb Width="6" Height="6" Cursor="SizeNESW" Margin="-6 0 0 -6"
                      VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-            <s:ResizeThumb Width="7" Height="7" Cursor="SizeNWSE" Margin="0 0 -6 -6"
+            <s:ResizeThumb Width="6" Height="6" Cursor="SizeNWSE" Margin="0 0 -6 -6"
                      VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         </Grid>
     </ControlTemplate>

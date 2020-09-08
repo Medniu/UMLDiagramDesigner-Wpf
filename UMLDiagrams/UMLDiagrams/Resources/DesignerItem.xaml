@@ -6,12 +6,13 @@
         <ResourceDictionary Source="MoveThumb.xaml"/>
         <ResourceDictionary Source="ResizeDecorator.xaml"/>
         <ResourceDictionary Source="RotateDecorator.xaml"/>
+        <ResourceDictionary Source="ConnectorDecorator.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- ContentControl style to move, resize and rotate items -->
     <Style x:Key="DesignerItemStyle" TargetType="ContentControl">
-        <Setter Property="MinHeight" Value="50"/>
-        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="MinWidth" Value="20"/>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="Template">
@@ -27,13 +28,22 @@
                                  Template="{StaticResource ResizeDecoratorTemplate}"
                                  Visibility="Collapsed"/>
                         <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
+                        
+                        <Control x:Name="ConnectorDecorator" Visibility="Hidden" 
+                                 Template="{StaticResource ConnectorDecoratorTemplate}"/>
                     </Grid>
+
                     <ControlTemplate.Triggers>
-                        <Trigger Property="Selector.IsSelected" Value="True">
+                        <DataTrigger Binding="{Binding Path=IsSelected}" Value="true">
                             <Setter TargetName="ResizeDecorator" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="RotateDecorator" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="ConnectorDecorator" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -9,10 +9,23 @@ namespace UMLDiagrams.ViewModel
 {
     abstract public class BaseShapeViewModel : BaseViewModel
     {
-
-        public BaseShapeViewModel()
+        private bool isSelected;
+        public bool IsSelected
         {
-
+            get => isSelected;
+            set => SetField(ref isSelected, value, nameof(IsSelected));
+        }
+        private double zindex;
+        public double ZIndex
+        {
+            get => zindex;
+            set => SetField(ref zindex, value, nameof(ZIndex));
+        }
+        private double angle;
+        public double Angle
+        {
+            get => angle;
+            set => SetField(ref angle, value, nameof(Angle));
         }
 
         private double left;
@@ -29,15 +42,15 @@ namespace UMLDiagrams.ViewModel
             set => SetField(ref top, value, nameof(Top));
         }
 
-        private int width;
-        public int Width
+        private double width;
+        public double Width
         {
             get => width;
             set => SetField(ref width, value, nameof(Width));
         }
 
-        private int height;
-        public int Height
+        private double height;
+        public double Height
         {
             get => height;
             set => SetField(ref height, value, nameof(Height));
@@ -55,6 +68,13 @@ namespace UMLDiagrams.ViewModel
         {
             get => text;
             set => SetField(ref text, value, nameof(Text));
+        }
+
+        private string stroke;
+        public string Stroke
+        {
+            get => stroke;
+            set => SetField(ref stroke, value, nameof(Stroke));
         }
 
     }

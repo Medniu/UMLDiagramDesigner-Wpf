@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\obj\Debug\
+C:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\obj\Debug\
 UMLDiagrams
 none
 false
 DEBUG;TRACE
-D:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\App.xaml
-7787461316
+C:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\App.xaml
+18-752521108
 
-16-1063791948
-122-1333340899
-MainWindow.xaml;Resources\DesignerItem.xaml;Resources\MoveThumb.xaml;Resources\ResizeDecorator.xaml;Resources\RotateDecorator.xaml;View\RectangleView.xaml;View\UseCaseView.xaml;
+35-51842808
+123574797164
+MainWindow.xaml;Resources\ConnectorDecorator.xaml;Resources\DesignerItem.xaml;Resources\MoveThumb.xaml;Resources\ResizeDecorator.xaml;Resources\RotateDecorator.xaml;Resources\TextSetting.xaml;View\ActionComponent.xaml;View\ActorComponent.xaml;View\DecisionNodeViewModel.xaml;View\DiagramClassComponent.xaml;View\EndNodeComponent.xaml;View\InitialNodeComponent.xaml;View\LineComponent.xaml;View\RectangleComponent.xaml;View\SystemComponent.xaml;View\TextComponent.xaml;View\UseCaseComponent.xaml;
 
 False
 

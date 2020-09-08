@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UMLDiagrams"
         xmlns:viewModel="clr-namespace:UMLDiagrams.ViewModel"
-        xmlns:view="clr-namespace:UMLDiagrams.View"        
+        xmlns:view="clr-namespace:UMLDiagrams.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow" Height="600" Width="1000"
         d:DataContext="{d:DesignInstance viewModel:MainViewModel}">
 
     <Window.Resources>
@@ -18,124 +18,125 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
-             </Grid.ColumnDefinitions>
-
-        <StackPanel Background="Gray" Grid.RowSpan="2">
-            <TextBlock Text="Shapes"                      
-                       FontSize="18"
-                       TextAlignment="Center" />
-            <Button Content="Initial Node" />
-            <Button Content="Final Node" />
-            <Button Content="Line" />
-            <Button Content="Action" />
-            <Button Content="Decision Node" />
-            <Button Content="Actor" />
-            <Button Content="Class" Command="{Binding Path=CreateRectangle}"/>
-            <Button Content="Use Case" Command="{Binding Path = CreateUseCase}"/>
-        </StackPanel>
-
-        <Grid Grid.Column="1">
-            <local:Timeline ItemsSource="{Binding Path=BaseShapeViewModels}">
-                <local:Timeline.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas/>
-                    </ItemsPanelTemplate>
-                </local:Timeline.ItemsPanel>
-
-
-                <local:Timeline.Resources>
-                    <DataTemplate DataType="{x:Type viewModel:EllipseViewModel}">
-                        <ContentControl              
-                                                
-                                                Height="{Binding Height}"
-                                                Width="{Binding Width}"
-                                                Selector.IsSelected="True"
-                                                Style="{StaticResource DesignerItemStyle}">
-                            <Ellipse 
-                                                Fill="{Binding Fill}"                                            
-                                                TextBlock.FontSize="{Binding Text}"
-                                                IsHitTestVisible="False"/>
-
-                        </ContentControl>
-                    </DataTemplate>
-
-                    <DataTemplate DataType="{x:Type viewModel:RectangleViewModel}">
-                        <ContentControl            
-                                              
-                                               Height="{Binding Height}"
-                                               Width="{Binding Width}"
-                                               Selector.IsSelected="True"
-                                               Style="{StaticResource DesignerItemStyle}">
-                            <Rectangle 
-                                               Fill="{Binding Fill}"
-                                               TextBlock.FontSize="{Binding Text}"
-                                               IsHitTestVisible="False"/>
-                        </ContentControl>
-                    </DataTemplate>
-                </local:Timeline.Resources>
-
-                <local:Timeline.ItemContainerStyle>
-                    <Style TargetType="ContentControl">
-                        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
-                        <Setter Property="Canvas.Top" Value="{Binding Top}"/>
-                    </Style>
-                </local:Timeline.ItemContainerStyle>
-
-            </local:Timeline>
-            <!--<ItemsControl ItemsSource="{Binding Path=BaseShapeViewModels}">
-
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-
-                        <Canvas/>
-
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-
-                <ItemsControl.Resources>
-                    <DataTemplate DataType="{x:Type viewModel:EllipseViewModel}">
-                        <ContentControl              
-                                                
-                                                Height="{Binding Height}"
-                                                Width="{Binding Width}"
-                                                Selector.IsSelected="True"
-                                                Style="{StaticResource DesignerItemStyle}">
-                            <Ellipse 
-                                                Fill="{Binding Fill}"                                            
-                                                TextBlock.FontSize="{Binding Text}"
-                                                IsHitTestVisible="False"/>
-
-                        </ContentControl>
-                    </DataTemplate>
-
-                    <DataTemplate DataType="{x:Type viewModel:RectangleViewModel}">
-                            <ContentControl            
-                                              
-                                               Height="{Binding Height}"
-                                               Width="{Binding Width}"
-                                               Selector.IsSelected="True"
-                                               Style="{StaticResource DesignerItemStyle}">
-                                <Rectangle 
-                                               Fill="{Binding Fill}"
-                                               TextBlock.FontSize="{Binding Text}"
-                                               IsHitTestVisible="False"/>
-                            </ContentControl>
-                        </DataTemplate>
-                   
-                </ItemsControl.Resources>
-
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
-                        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
-                        <Setter Property="Canvas.Top" Value="{Binding Top}"/>
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-            </ItemsControl>-->
+    <DockPanel>
+        <ToolBar Height="30" DockPanel.Dock="Top">
+            <Button Content="New" Command = "{Binding Path = Clear}"/>
+            <Button Content="Open" Command = "{Binding Path = Open}"/>
+            <Button Content="Delete" Command="{Binding Path = Delete}"/>
+            <Button Content="Save as Json" Command = "{Binding Path = SaveJsonDiagram}"/>
+            <Button Content="Save as Png" Command = "{Binding Path = SavePngDiagram}"/>
             
+        </ToolBar>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Background="White" Grid.RowSpan="2">
+                <TextBlock Text="Shapes" FontSize="18" TextAlignment="Center" />
+                <Button Content="System"        Command = "{Binding Path = CreateSystem}"/>
+                <Button Content="Initial Node"  Command = "{Binding Path = CreateInitialNode}"/>
+                <Button Content="End Node"      Command = "{Binding Path = CreateEndNode}"/>
+                <Button Content="Line"          Command = "{Binding Path = CreateLine}"/>
+                <Button Content="Decision Node" Command = "{Binding Path = CreateDecisionNode}"/>
+                <Button Content="Rectangle"     Command = "{Binding Path = CreateRectangle}"/>
+                <Button Content="Use Case"      Command = "{Binding Path = CreateUseCase}"/>
+                <Button Content="Action"        Command = "{Binding Path = CreateAction}"/>
+                <Button Content="TextBox"       Command = "{Binding Path = CreateTextBox}"/>
+                <Button Content="Actor"         Command = "{Binding Path = CreateActor}"/>
+                <Button Content="Class"         Command="{Binding Path = CreateClass}"/>
+                <Slider x:Name="ZoomSlider" Orientation="Horizontal"  Minimum="0.0" Maximum="8.0" LargeChange="0.25" SmallChange="0.01"  Value="1.0" />
+            </StackPanel>
+
+            
+            <GridSplitter Grid.Column="0" Focusable="False" Width="2" Background="#AAA"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
+
+            <Grid x:Name="grid" Grid.Column="1">
+
+                <ItemsControl x:Name="ItemsCtr" Height="Auto" Width="Auto" ItemsSource="{Binding Path= BaseShapeViewModels}">
+                    
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate x:Name="ITP">
+                            <Canvas Height="2000" Width="3000" Loaded="My_Canvas_Loaded">
+                                <Canvas.LayoutTransform>
+                                    <ScaleTransform ScaleX="{Binding ElementName=ZoomSlider, Path=Value}" ScaleY="{Binding ElementName=ZoomSlider, Path=Value}" />
+                                </Canvas.LayoutTransform>
+                            </Canvas>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.Resources>
+
+                        <DataTemplate DataType="{x:Type viewModel:LineViewModel}">
+                            <view:LineComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:SystemViewModel}">
+                            <view:SystemComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:ActorViewModel}">
+                            <view:ActorComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:TextViewModel}">
+                            <view:TextComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:ActionViewModel}">
+                            <view:ActionComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:DecisionNodeViewModel}">
+                            <view:DecisionNodeViewModel/>
+                        </DataTemplate>
+                        
+                        <DataTemplate DataType="{x:Type viewModel:InitialNodeViewModel}">
+                            <view:InitialNodeComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:EndNodeViewModel}">
+                            <view:EndNodeComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:EllipseViewModel}">
+                            <view:UseCaseComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:ClassViewModel}">
+                            <view:DiagramClassComponent/>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type viewModel:RectangleViewModel}">
+                            <view:RectangleComponent/>
+                        </DataTemplate>
+
+                    </ItemsControl.Resources>
+
+                    <ItemsControl.ItemContainerStyle>
+
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding Left, Mode = TwoWay}"/>
+                            <Setter Property="Canvas.Top" Value="{Binding Top, Mode = TwoWay}"/>
+                            <Setter Property="Width" Value="{Binding Width, Mode = TwoWay}"/>
+                            <Setter Property="Height" Value="{Binding Height,Mode = TwoWay}"/>
+                            <Setter Property="Panel.ZIndex" Value="{Binding ZIndex}"/>
+                        </Style>                        
+                    </ItemsControl.ItemContainerStyle>
+
+                    <ItemsControl.Template>
+                        <ControlTemplate TargetType = "ItemsControl">
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                </ItemsControl>
+            </Grid>
         </Grid>
-    </Grid>
+    </DockPanel>
 </Window>

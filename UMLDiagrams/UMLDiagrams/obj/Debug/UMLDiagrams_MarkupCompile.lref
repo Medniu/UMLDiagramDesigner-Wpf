@@ -1,10 +1,21 @@
 ﻿
 
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\MainWindow.xaml;;
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\Resources\DesignerItem.xaml;;
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\Resources\MoveThumb.xaml;;
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\Resources\ResizeDecorator.xaml;;
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\Resources\RotateDecorator.xaml;;
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\View\RectangleView.xaml;;
-FD:\Tasks\GitProjects\uml\UMLDiagrams\UMLDiagrams\View\UseCaseView.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\MainWindow.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\Resources\ConnectorDecorator.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\Resources\DesignerItem.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\Resources\MoveThumb.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\Resources\ResizeDecorator.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\Resources\RotateDecorator.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\Resources\TextSetting.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\ActionComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\ActorComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\DecisionNodeViewModel.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\DiagramClassComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\EndNodeComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\InitialNodeComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\LineComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\RectangleComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\SystemComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\TextComponent.xaml;;
+FC:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\View\UseCaseComponent.xaml;;
 
