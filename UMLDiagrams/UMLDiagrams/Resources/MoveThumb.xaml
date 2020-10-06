@@ -5,4 +5,5 @@
     <ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type s:MoveThumb}">
         <Rectangle Fill="Transparent"/>
     </ControlTemplate>
+    
 </ResourceDictionary>

@@ -8,6 +8,11 @@ namespace UMLDiagrams.ViewModel
 {
     public class TextViewModel : BaseShapeViewModel
     {
-
+        private string text;
+        public string Text
+        {
+            get => text;
+            set => SetField(ref text, value, nameof(Text));
+        }
     }
 }

@@ -15,9 +15,6 @@ namespace UMLDiagrams.ViewModel
 {
     public class EllipseViewModel : BaseShapeViewModel
     {      
-        public EllipseViewModel()
-        {            
-
-        }       
+            
     }
 }

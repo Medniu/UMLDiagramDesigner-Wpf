@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace UMLDiagrams.View
 {
     /// <summary>
-    /// Логика взаимодействия для UseCaseComponent.xaml
+    /// Логика взаимодействия для ConnectionComponentView.xaml
     /// </summary>
-    public partial class UseCaseComponent : UserControl
+    public partial class ConnectionComponentView : UserControl
     {
-        public UseCaseComponent()
+        public ConnectionComponentView()
         {
             InitializeComponent();
+        }
+
+        private void ContentControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var i = sender;
         }
     }
 }

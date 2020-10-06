@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\obj\Debug\
+C:\Users\Laptop\Desktop\Wpf\UMLDiagrams\UMLDiagrams\obj\Debug\
 UMLDiagrams
 none
 false
 DEBUG;TRACE
-C:\Users\Laptop\Desktop\uml\UMLDiagrams\UMLDiagrams\App.xaml
-18-752521108
+C:\Users\Laptop\Desktop\Wpf\UMLDiagrams\UMLDiagrams\App.xaml
+21-1074915328
 
-35-51842808
-123574797164
-MainWindow.xaml;Resources\ConnectorDecorator.xaml;Resources\DesignerItem.xaml;Resources\MoveThumb.xaml;Resources\ResizeDecorator.xaml;Resources\RotateDecorator.xaml;Resources\TextSetting.xaml;View\ActionComponent.xaml;View\ActorComponent.xaml;View\DecisionNodeViewModel.xaml;View\DiagramClassComponent.xaml;View\EndNodeComponent.xaml;View\InitialNodeComponent.xaml;View\LineComponent.xaml;View\RectangleComponent.xaml;View\SystemComponent.xaml;View\TextComponent.xaml;View\UseCaseComponent.xaml;
+392040805822
+1231587518892
+MainWindow.xaml;Resources\ConnectorDesignerItem.xaml;Resources\DesignerItem.xaml;Resources\MoveThumb.xaml;Resources\ResizeDecorator.xaml;Resources\RotateDecorator.xaml;Resources\TextSetting.xaml;Resources\WarningMessage.xaml;View\ActionComponentView.xaml;View\ActorComponentView.xaml;View\ConnectionComponentView.xaml;View\ConnectorComponentView.xaml;View\DecisionNodeComponentView.xaml;View\DiagramClassComponentView.xaml;View\EndNodeComponentView.xaml;View\InitialNodeComponentView.xaml;View\LinePointComponentView.xaml;View\RectangleComponentView.xaml;View\SystemComponentView.xaml;View\TextComponentView.xaml;View\UseCaseComponentView.xaml;
 
 False
 

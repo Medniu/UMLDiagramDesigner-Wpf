@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace UMLDiagrams.ViewModel
 {
-    public class LineViewModel : BaseShapeViewModel
+    public class ConnectorViewModel : BaseShapeViewModel
     {
-
+        
     }
 }

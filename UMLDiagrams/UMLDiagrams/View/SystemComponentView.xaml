@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="UMLDiagrams.View.TextComponent"
+﻿<UserControl x:Class="UMLDiagrams.View.SystemComponentView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,12 +15,10 @@
     </UserControl.Resources>
 
     <ContentControl Selector.IsSelected="True" Style="{StaticResource DesignerItemStyle}">
-
         <ContentControl.RenderTransform>
             <RotateTransform Angle="{Binding Angle}" CenterX="5" CenterY="5"/>
         </ContentControl.RenderTransform>
-        <TextBlock x:Name="TextBlock" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                   Text="{Binding Text}" IsHitTestVisible="False"/>
-    </ContentControl>
 
+        <Rectangle Stroke="{Binding Stroke}" IsHitTestVisible="False"/>
+    </ContentControl>
 </UserControl>

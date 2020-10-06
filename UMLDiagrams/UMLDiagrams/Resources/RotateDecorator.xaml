@@ -9,7 +9,7 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type s:RotateThumb}">
-                    <Grid Width="30" Height="30">
+                    <Grid Width="25" Height="25">
                         <Path Fill="#AAD0D0DD"
                               Stretch="Fill"
                               Data="M 50,100 A 50,50 0 1 1 100,50 H 50 V 100"/>

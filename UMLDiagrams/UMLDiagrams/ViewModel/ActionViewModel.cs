@@ -8,6 +8,7 @@ namespace UMLDiagrams.ViewModel
 {
     public class ActionViewModel : BaseShapeViewModel
     {
+        
 
         private double radiusX;
         public double RadiusX

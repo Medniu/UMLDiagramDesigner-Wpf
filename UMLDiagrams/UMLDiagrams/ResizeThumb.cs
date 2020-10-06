@@ -29,29 +29,17 @@ namespace UMLDiagrams
                 double deltaVertical, deltaHorizontal;
 
                 switch (VerticalAlignment)
-                {
-                    //case VerticalAlignment.Bottom:
-                    //    deltaVertical = Math.Min(-e.VerticalChange, model.Height );
-                    //    model.Height -= deltaVertical;
-                    //    break;
-
-                    //case VerticalAlignment.Top:
-                    //    deltaVertical = Math.Min(e.VerticalChange, model.Height);
-                    //    model.Top += deltaVertical;
-                    //    model.Height -= deltaVertical;
-                    //    break;
-                    //default:
-                    //    break;
+                {                  
                     case VerticalAlignment.Bottom:
                         deltaVertical = Math.Min(-e.VerticalChange, designerItem.ActualHeight - designerItem.MinHeight);
-                        model.Height -= deltaVertical;
-                        break;
+                        ResizeBottom(model, deltaVertical);
+                        break;                        
 
                     case VerticalAlignment.Top:
                         deltaVertical = Math.Min(e.VerticalChange, designerItem.ActualHeight - designerItem.MinHeight);
-                        model.Top += deltaVertical;
-                        model.Height -= deltaVertical;
+                        ResizeTop(model, deltaVertical);                     
                         break;
+
                     default:
                         break;
                 }
@@ -59,21 +47,81 @@ namespace UMLDiagrams
                 switch (HorizontalAlignment)
                 {
                     case HorizontalAlignment.Left:
-                        deltaHorizontal = Math.Min(e.HorizontalChange, designerItem.ActualWidth - designerItem.MinWidth);                      
-                        model.Left += deltaHorizontal;                        
-                        model.Width -= deltaHorizontal;
+                        deltaHorizontal = Math.Min(e.HorizontalChange, designerItem.ActualWidth - designerItem.MinWidth);
+                        ResizeLeft(model, deltaHorizontal);                        
                         break;
 
                     case HorizontalAlignment.Right:
-                        deltaHorizontal = Math.Min(-e.HorizontalChange, designerItem.ActualWidth - designerItem.MinWidth);
-                        model.Width -= deltaHorizontal;
+                        deltaHorizontal = Math.Min(-e.HorizontalChange, designerItem.ActualWidth - designerItem.MinWidth);                       
+                        ResizeRight(model, deltaHorizontal);
                         break;
+
                     default:
                         break;
                 }
             }
-
             e.Handled = true;
+            
+        }
+        private void ResizeBottom(BaseShapeViewModel model, double deltaVertical)
+        {
+            model.Height -= deltaVertical;
+            if (!(model is SystemViewModel))
+            {
+                model.ConnectorBottom.Top -= deltaVertical;
+                model.ConnectorLeft.Top -= (deltaVertical / 2);
+                model.ConnectorRight.Top -= (deltaVertical / 2);
+
+                model.ConnectorBottom.Center = new Point(model.ConnectorBottom.Center.X, model.ConnectorBottom.Center.Y - deltaVertical);
+                model.ConnectorLeft.Center = new Point(model.ConnectorLeft.Center.X, model.ConnectorLeft.Center.Y - deltaVertical / 2);
+                model.ConnectorRight.Center = new Point(model.ConnectorRight.Center.X, model.ConnectorRight.Center.Y - deltaVertical / 2);
+            }
+        
+        }
+        private void ResizeTop(BaseShapeViewModel model, double deltaVertical)
+        {
+            model.Top += deltaVertical;
+            model.Height -= deltaVertical;
+            if (!(model is SystemViewModel))
+            {
+                model.ConnectorTop.Top += deltaVertical;
+                model.ConnectorLeft.Top += (deltaVertical / 2);
+                model.ConnectorRight.Top += (deltaVertical / 2);
+
+                model.ConnectorTop.Center = new Point(model.ConnectorTop.Center.X, model.ConnectorTop.Center.Y + deltaVertical);
+                model.ConnectorLeft.Center = new Point(model.ConnectorLeft.Center.X, model.ConnectorLeft.Center.Y + deltaVertical / 2);
+                model.ConnectorRight.Center = new Point(model.ConnectorRight.Center.X, model.ConnectorRight.Center.Y + deltaVertical / 2);
+            }
+
+        }
+        private void ResizeLeft(BaseShapeViewModel model, double deltaHorizontal)
+        {
+            model.Left += deltaHorizontal;
+            model.Width -= deltaHorizontal;
+            if (!(model is SystemViewModel))
+            {
+                model.ConnectorLeft.Left += deltaHorizontal;
+                model.ConnectorTop.Left += (deltaHorizontal / 2);
+                model.ConnectorBottom.Left += (deltaHorizontal / 2);
+
+                model.ConnectorTop.Center = new Point(model.ConnectorTop.Center.X + deltaHorizontal / 2, model.ConnectorTop.Center.Y);
+                model.ConnectorLeft.Center = new Point(model.ConnectorLeft.Center.X + deltaHorizontal, model.ConnectorLeft.Center.Y);
+                model.ConnectorBottom.Center = new Point(model.ConnectorBottom.Center.X + deltaHorizontal / 2, model.ConnectorBottom.Center.Y);
+            }
+        }
+        private void ResizeRight(BaseShapeViewModel model, double deltaHorizontal)
+        {
+            model.Width -= deltaHorizontal;
+            if (!(model is SystemViewModel))
+            {
+                model.ConnectorRight.Left -= deltaHorizontal;
+                model.ConnectorTop.Left -= (deltaHorizontal / 2);
+                model.ConnectorBottom.Left -= (deltaHorizontal / 2);
+
+                model.ConnectorTop.Center = new Point(model.ConnectorTop.Center.X - deltaHorizontal / 2, model.ConnectorTop.Center.Y);
+                model.ConnectorRight.Center = new Point(model.ConnectorRight.Center.X - deltaHorizontal, model.ConnectorRight.Center.Y);
+                model.ConnectorBottom.Center = new Point(model.ConnectorBottom.Center.X - deltaHorizontal / 2, model.ConnectorBottom.Center.Y);
+            }
         }
     }
 }

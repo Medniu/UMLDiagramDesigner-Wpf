@@ -22,11 +22,12 @@ namespace UMLDiagrams
        
 
         private void RotateThumb_DragDelta(object sender, DragDeltaEventArgs e)
-        {         
-            //ContentControl designerItem = this.DataContext as ContentControl;
-            Control designerItem = this.DataContext as ContentControl;
-            var model = designerItem.DataContext as BaseShapeViewModel;           
-            model.Angle += 1;        
-        }
+        { 
+            double h = e.HorizontalChange;          
+            Control designerItem = DataContext as ContentControl;
+            var model = designerItem.DataContext as BaseShapeViewModel;
+            if (h > 0) { model.Angle += 1; }
+            else { model.Angle -= 1; }            
+        }        
     }
 }

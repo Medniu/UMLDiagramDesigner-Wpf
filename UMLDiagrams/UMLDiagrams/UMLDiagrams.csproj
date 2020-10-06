@@ -73,58 +73,68 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connector.cs" />
     <Compile Include="MoveThumb.cs" />
     <Compile Include="ResizeThumb.cs" />
     <Compile Include="Resources\TextSetting.xaml.cs">
       <DependentUpon>TextSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\WarningMessage.xaml.cs">
+      <DependentUpon>WarningMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RotateThumb.cs" />
     <Compile Include="ViewModel\ActionViewModel.cs" />
     <Compile Include="ViewModel\ActorViewModel.cs" />
     <Compile Include="ViewModel\BaseShapeViewModel.cs" />
     <Compile Include="ViewModel\ClassViewModel.cs" />
+    <Compile Include="ViewModel\ConnectionViewModel.cs" />
+    <Compile Include="ViewModel\ConnectorViewModel.cs" />
     <Compile Include="ViewModel\DecisionNodeViewModel.cs" />
     <Compile Include="ViewModel\EndNodeViewModel.cs" />
-    <Compile Include="ViewModel\LineViewModel.cs" />
+    <Compile Include="ViewModel\LinePointViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RectangleViewModel.cs" />
     <Compile Include="ViewModel\EllipseViewModel.cs" />
     <Compile Include="ViewModel\InitialNodeViewModel.cs" />
     <Compile Include="ViewModel\SystemViewModel.cs" />
     <Compile Include="ViewModel\TextViewModel.cs" />
-    <Compile Include="View\ActionComponent.xaml.cs">
-      <DependentUpon>ActionComponent.xaml</DependentUpon>
+    <Compile Include="View\ActionComponentView.xaml.cs">
+      <DependentUpon>ActionComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ActorComponent.xaml.cs">
-      <DependentUpon>ActorComponent.xaml</DependentUpon>
+    <Compile Include="View\ActorComponentView.xaml.cs">
+      <DependentUpon>ActorComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DecisionNodeViewModel.xaml.cs">
-      <DependentUpon>DecisionNodeViewModel.xaml</DependentUpon>
+    <Compile Include="View\ConnectionComponentView.xaml.cs">
+      <DependentUpon>ConnectionComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DiagramClassComponent.xaml.cs">
-      <DependentUpon>DiagramClassComponent.xaml</DependentUpon>
+    <Compile Include="View\ConnectorComponentView.xaml.cs">
+      <DependentUpon>ConnectorComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EndNodeComponent.xaml.cs">
-      <DependentUpon>EndNodeComponent.xaml</DependentUpon>
+    <Compile Include="View\DecisionNodeComponentView.xaml.cs">
+      <DependentUpon>DecisionNodeComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\InitialNodeComponent.xaml.cs">
-      <DependentUpon>InitialNodeComponent.xaml</DependentUpon>
+    <Compile Include="View\DiagramClassComponentView.xaml.cs">
+      <DependentUpon>DiagramClassComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LineComponent.xaml.cs">
-      <DependentUpon>LineComponent.xaml</DependentUpon>
+    <Compile Include="View\EndNodeComponentView.xaml.cs">
+      <DependentUpon>EndNodeComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RectangleComponent.xaml.cs">
-      <DependentUpon>RectangleComponent.xaml</DependentUpon>
+    <Compile Include="View\InitialNodeComponentView.xaml.cs">
+      <DependentUpon>InitialNodeComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SystemComponent.xaml.cs">
-      <DependentUpon>SystemComponent.xaml</DependentUpon>
+    <Compile Include="View\LinePointComponentView.xaml.cs">
+      <DependentUpon>LinePointComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TextComponent.xaml.cs">
-      <DependentUpon>TextComponent.xaml</DependentUpon>
+    <Compile Include="View\RectangleComponentView.xaml.cs">
+      <DependentUpon>RectangleComponentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UseCaseComponent.xaml.cs">
-      <DependentUpon>UseCaseComponent.xaml</DependentUpon>
+    <Compile Include="View\SystemComponentView.xaml.cs">
+      <DependentUpon>SystemComponentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TextComponentView.xaml.cs">
+      <DependentUpon>TextComponentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UseCaseComponentView.xaml.cs">
+      <DependentUpon>UseCaseComponentView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -138,7 +148,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resources\ConnectorDecorator.xaml">
+    <Page Include="Resources\ConnectorDesignerItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,47 +172,59 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ActionComponent.xaml">
+    <Page Include="Resources\WarningMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ActorComponent.xaml">
+    <Page Include="View\ActionComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DecisionNodeViewModel.xaml">
+    <Page Include="View\ActorComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DiagramClassComponent.xaml">
+    <Page Include="View\ConnectionComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EndNodeComponent.xaml">
+    <Page Include="View\ConnectorComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\InitialNodeComponent.xaml">
+    <Page Include="View\DecisionNodeComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LineComponent.xaml">
+    <Page Include="View\DiagramClassComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RectangleComponent.xaml">
+    <Page Include="View\EndNodeComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SystemComponent.xaml">
+    <Page Include="View\InitialNodeComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TextComponent.xaml">
+    <Page Include="View\LinePointComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UseCaseComponent.xaml">
+    <Page Include="View\RectangleComponentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SystemComponentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TextComponentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UseCaseComponentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

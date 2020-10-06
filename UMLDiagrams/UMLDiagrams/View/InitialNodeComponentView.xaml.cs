@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UMLDiagrams.View
 {
     /// <summary>
-    /// Логика взаимодействия для DiagramClassComponent.xaml
+    /// Логика взаимодействия для InitialNodeComponentView.xaml
     /// </summary>
-    public partial class DiagramClassComponent : UserControl
+    public partial class InitialNodeComponentView : UserControl
     {
-        public DiagramClassComponent()
+        public InitialNodeComponentView()
         {
             InitializeComponent();
         }

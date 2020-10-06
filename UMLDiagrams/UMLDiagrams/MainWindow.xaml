@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:UMLDiagrams"
         xmlns:viewModel="clr-namespace:UMLDiagrams.ViewModel"
         xmlns:view="clr-namespace:UMLDiagrams.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:mvvm="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000"
+        WindowState="Maximized"
         d:DataContext="{d:DesignInstance viewModel:MainViewModel}">
 
     <Window.Resources>
@@ -25,11 +28,10 @@
             <Button Content="Delete" Command="{Binding Path = Delete}"/>
             <Button Content="Save as Json" Command = "{Binding Path = SaveJsonDiagram}"/>
             <Button Content="Save as Png" Command = "{Binding Path = SavePngDiagram}"/>
-            
+            <Button Content="Build simple diagram" Command="{Binding Path = BuildDiagram}"/>
         </ToolBar>
 
         <Grid>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition/>
@@ -48,93 +50,133 @@
                 <Button Content="TextBox"       Command = "{Binding Path = CreateTextBox}"/>
                 <Button Content="Actor"         Command = "{Binding Path = CreateActor}"/>
                 <Button Content="Class"         Command="{Binding Path = CreateClass}"/>
-                <Slider x:Name="ZoomSlider" Orientation="Horizontal"  Minimum="0.0" Maximum="8.0" LargeChange="0.25" SmallChange="0.01"  Value="1.0" />
+                
+                <Slider x:Name="ZoomSlider" Orientation="Horizontal"  Minimum="0.5" Maximum="5"/>
+                    <!--Maximum="2.0"
+                        LargeChange="0.5" SmallChange="0.1"  Value="1.0"-->
             </StackPanel>
-
             
             <GridSplitter Grid.Column="0" Focusable="False" Width="2" Background="#AAA"
                     VerticalAlignment="Stretch" HorizontalAlignment="Right"/>
 
             <Grid x:Name="grid" Grid.Column="1">
-
-                <ItemsControl x:Name="ItemsCtr" Height="Auto" Width="Auto" ItemsSource="{Binding Path= BaseShapeViewModels}">
-                    
+                <ItemsControl Height="Auto" Width="Auto" ItemsSource="{Binding Path= BaseShapeViewModels}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate x:Name="ITP">
-                            <Canvas Height="2000" Width="3000" Loaded="My_Canvas_Loaded">
+                            <Canvas x:Name="MyCanvas" IsItemsHost="True"
+                                    Height="2000" Width="3000"
+                                    Loaded="My_Canvas_Loaded">
+
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseRightButtonDown">
+                                        <mvvm:EventToCommand Command="{Binding AddNewLinePoint}" PassEventArgsToCommand="True"/>
+                                    </i:EventTrigger>
+
+                                    <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                        <mvvm:EventToCommand Command="{Binding StartDrawnLine}" PassEventArgsToCommand="True"/>
+                                    </i:EventTrigger>
+
+                                    <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                        <mvvm:EventToCommand Command="{Binding EndDrawnLine}"  PassEventArgsToCommand="True"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+
+                                <!--<Canvas.LayoutTransform>
+                                    <MatrixTransform/>
+                                </Canvas.LayoutTransform>-->
+                                
+                                <!--<Canvas.LayoutTransform >
+                                    <ScaleTransform x:Name="st" />
+                                </Canvas.LayoutTransform>-->
+
                                 <Canvas.LayoutTransform>
-                                    <ScaleTransform ScaleX="{Binding ElementName=ZoomSlider, Path=Value}" ScaleY="{Binding ElementName=ZoomSlider, Path=Value}" />
+                                    <ScaleTransform x:Name="st"
+                                                    ScaleX="{Binding  ElementName=ZoomSlider, Path=Value}" 
+                                                    ScaleY="{Binding ElementName=ZoomSlider, Path=Value}"/>
                                 </Canvas.LayoutTransform>
+                                
                             </Canvas>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
                     <ItemsControl.Resources>
-
-                        <DataTemplate DataType="{x:Type viewModel:LineViewModel}">
-                            <view:LineComponent/>
+                        <DataTemplate DataType ="{x:Type viewModel:ConnectorViewModel}" >
+                            <view:ConnectorComponentView/>
                         </DataTemplate>
 
+                        <DataTemplate DataType="{x:Type viewModel:ConnectionViewModel}">
+                            <view:ConnectionComponentView/>
+                        </DataTemplate>
+                        
+                        <DataTemplate DataType="{x:Type viewModel:LinePointViewModel}">
+                            <view:LinePointComponentView/>
+                        </DataTemplate>
+                        
                         <DataTemplate DataType="{x:Type viewModel:SystemViewModel}">
-                            <view:SystemComponent/>
+                            <view:SystemComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:ActorViewModel}">
-                            <view:ActorComponent/>
+                            <view:ActorComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:TextViewModel}">
-                            <view:TextComponent/>
+                            <view:TextComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:ActionViewModel}">
-                            <view:ActionComponent/>
+                            <view:ActionComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:DecisionNodeViewModel}">
-                            <view:DecisionNodeViewModel/>
+                            <view:DecisionNodeComponentView/>
                         </DataTemplate>
                         
                         <DataTemplate DataType="{x:Type viewModel:InitialNodeViewModel}">
-                            <view:InitialNodeComponent/>
+                            <view:InitialNodeComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:EndNodeViewModel}">
-                            <view:EndNodeComponent/>
+                            <view:EndNodeComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:EllipseViewModel}">
-                            <view:UseCaseComponent/>
+                            <view:UseCaseComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:ClassViewModel}">
-                            <view:DiagramClassComponent/>
+                            <view:DiagramClassComponentView/>
                         </DataTemplate>
 
                         <DataTemplate DataType="{x:Type viewModel:RectangleViewModel}">
-                            <view:RectangleComponent/>
+                            <view:RectangleComponentView/>
                         </DataTemplate>
-
                     </ItemsControl.Resources>
 
                     <ItemsControl.ItemContainerStyle>
-
                         <Style TargetType="ContentPresenter">
                             <Setter Property="Canvas.Left" Value="{Binding Left, Mode = TwoWay}"/>
                             <Setter Property="Canvas.Top" Value="{Binding Top, Mode = TwoWay}"/>
                             <Setter Property="Width" Value="{Binding Width, Mode = TwoWay}"/>
                             <Setter Property="Height" Value="{Binding Height,Mode = TwoWay}"/>
                             <Setter Property="Panel.ZIndex" Value="{Binding ZIndex}"/>
-                        </Style>                        
+                        </Style>
                     </ItemsControl.ItemContainerStyle>
 
                     <ItemsControl.Template>
                         <ControlTemplate TargetType = "ItemsControl">
-                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer x:Name="ScrollViewer"
+                                          PreviewMouseWheel="ScrollViewer_MouseWheel"
+                                          PreviewMouseLeftButtonDown="ScrollViewer_PreviewMouseLeftButtonDown"
+                                          PreviewMouseLeftButtonUp="ScrollViewer_PreviewMouseLeftButtonUp"
+                                          
+                                          HorizontalScrollBarVisibility="Auto" 
+                                          VerticalScrollBarVisibility="Auto">
                                 <ItemsPresenter/>
                             </ScrollViewer>
                         </ControlTemplate>
                     </ItemsControl.Template>
+                    
                 </ItemsControl>
             </Grid>
         </Grid>
